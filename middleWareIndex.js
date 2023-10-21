@@ -2,6 +2,8 @@ const reqFilter = require("./Egmiddleware");
 const express = require("express");
 const app = express();
 
+//if you want it to be applied for all the pages then just copy paste that Egmiddleware.js at the top of pages wala code and remove module.export and use const
+
 //////////////////////////////////////
 const route = express.Router();
 route.use(reqFilter);
