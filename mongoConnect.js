@@ -1,15 +1,19 @@
-/// Always make seperate file for connection, this code can be used for connection purposes
-
 const { MongoClient } = require("mongodb");
-const url = "mongodb://localhost:27017";
-const databaseName = "LearningBackEnd";
 
-const client = new MongoClient(url);
+async function dbConnect() {
+  const client = new MongoClient("mongodb://localhost:27017", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 
-const dbConnect = async () => {
-  let result = await client.connect();
-  db = result.db(databaseName);
-  return db.collection("names");
-};
+  try {
+    await client.connect();
+    const db = client.db("LearningBackEnd"); // Replace 'your_database_name' with your actual database name
+    return db; // Return the database instance, NOT the client instance
+  } catch (error) {
+    console.error("Error connecting to the database:", error);
+    throw error;
+  }
+}
 
 module.exports = dbConnect;
