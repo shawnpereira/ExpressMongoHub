@@ -2,8 +2,8 @@ const { MongoClient } = require("mongodb");
 
 async function dbConnect() {
   const client = new MongoClient("mongodb://localhost:27017", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
   });
 
   try {
