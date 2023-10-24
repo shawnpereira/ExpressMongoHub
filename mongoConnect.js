@@ -8,7 +8,7 @@ async function dbConnect() {
 
   try {
     await client.connect();
-    const db = client.db("LearningBackEnd"); // Replace 'your_database_name' with your actual database name
+    const db = client.db("LearningBackEnd");
     return db; // Return the database instance, NOT the client instance
   } catch (error) {
     console.error("Error connecting to the database:", error);
